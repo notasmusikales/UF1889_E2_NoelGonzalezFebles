@@ -13,21 +13,18 @@
         </field>
     </record>
 
-    <!-- LISTA (SAFE MODE ODOO 19) -->
+    <!-- TREE REAL (CONTACTS APP) -->
     <record id="view_partner_tree_activity" model="ir.ui.view">
         <field name="name">res.partner.tree.activity</field>
         <field name="model">res.partner</field>
 
-        <!-- CLAVE: no dependas de base/contacts -->
-        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <!-- 🔥 IMPORTANTE: en Odoo 19 este suele ser el correcto -->
+        <field name="inherit_id" ref="base.view_partner_tree"/>
 
         <field name="arch" type="xml">
-
-            <!-- INSERTA COLUMNA SIN DEPENDER DE STRUCTURE TREE -->
             <xpath expr="//field[@name='email']" position="after">
                 <field name="activity_followup_count"/>
             </xpath>
-
         </field>
     </record>
 
