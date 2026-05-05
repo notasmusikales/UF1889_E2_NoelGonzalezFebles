@@ -5,16 +5,16 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='type']" position="before">
-                <field name="activity_followup_count"/>
+            <xpath expr="//field[@name='street']" position="before">
+                <field name="activity_followup_count" readonly="True"/>
             </xpath>
         </field>
     </record>
 
-    <record id="view_partner_tree_activity" model="ir.ui.view">
-        <field name="name">res.partner.tree.activity</field>
+    <record id="view_partner_list_activity" model="ir.ui.view">
+        <field name="name">res.partner.list.activity</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="inherit_id" ref="base.view_partner_list"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='display_name']" position="before">
                 <field name="activity_followup_count"/>
