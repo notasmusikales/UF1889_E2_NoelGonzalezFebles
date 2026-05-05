@@ -20,16 +20,16 @@
         <field name="name">res.partner.list.activity</field>
         <field name="model">res.partner</field>
 
-        <!-- FIX IMPORTANTE -->
         <field name="inherit_id" ref="base.view_partner_tree"/>
 
         <field name="arch" type="xml">
 
-            <!-- FIX MÁS SEGURO -->
-            <xpath expr="//field[@name='name']" position="inside">
+            <!-- SOLUCIÓN SEGURA -->
+            <xpath expr="//tree" position="inside">
                 <field name="activity_followup_count"/>
             </xpath>
 
         </field>
     </record>
+
 </odoo>
