@@ -26,7 +26,7 @@
         <field name="arch" type="xml">
 
             <!-- FIX MÁS SEGURO -->
-            <xpath expr="//tree" position="inside">
+            <xpath expr="//field[@name='name']" position="inside">
                 <field name="activity_followup_count"/>
             </xpath>
 
