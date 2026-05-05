@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- FORM -->
-    <record id="view_partner_form_activity" model="ir.ui.view">
+    <!--<record id="view_partner_form_activity" model="ir.ui.view">
         <field name="name">res.partner.form.activity</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
@@ -11,7 +11,7 @@
                 <field name="activity_followup_count" readonly="1"/>
             </xpath>
         </field>
-    </record>
+    </record>-->
 
     <!-- TREE REAL (CONTACTS APP) -->
     <!-- <record id="view_partner_tree_activity" model="ir.ui.view">
