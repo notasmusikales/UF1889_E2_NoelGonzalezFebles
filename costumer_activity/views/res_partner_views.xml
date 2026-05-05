@@ -15,7 +15,7 @@
         </field>
     </record>
 
-    <!-- TREE VIEW (FIX DEFINITIVO) -->
+    <!-- TREE VIEW (ULTRA ROBUSTA) -->
     <record id="view_partner_list_activity" model="ir.ui.view">
         <field name="name">res.partner.list.activity</field>
         <field name="model">res.partner</field>
@@ -24,8 +24,8 @@
 
         <field name="arch" type="xml">
 
-            <!-- FIX ESTABLE -->
-            <xpath expr="//field[@name='display_name']" position="after">
+            <!-- 🔥 NO DEPENDE DE CAMPOS -->
+            <xpath expr="//tree" position="inside">
                 <field name="activity_followup_count"/>
             </xpath>
 
