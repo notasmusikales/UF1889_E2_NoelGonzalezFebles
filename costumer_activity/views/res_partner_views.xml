@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- =========================
-        RES PARTNER FORM VIEW
-    ========================== -->
+    <!-- FORM -->
     <record id="view_partner_form_activity" model="ir.ui.view">
         <field name="name">res.partner.form.activity</field>
         <field name="model">res.partner</field>
-
-        <!-- Base form view estable -->
         <field name="inherit_id" ref="base.view_partner_form"/>
-
         <field name="arch" type="xml">
-
-            <!-- Ancla estable en el formulario -->
             <xpath expr="//field[@name='street']" position="before">
                 <field name="activity_followup_count" readonly="1"/>
             </xpath>
-
         </field>
     </record>
 
-
-    <!-- =========================
-        RES PARTNER LIST VIEW
-        (Odoo 19 SAFE)
-    ========================== -->
-    <record id="view_partner_list_activity" model="ir.ui.view">
-        <field name="name">res.partner.list.activity</field>
+    <!-- LISTA (SAFE MODE ODOO 19) -->
+    <record id="view_partner_tree_activity" model="ir.ui.view">
+        <field name="name">res.partner.tree.activity</field>
         <field name="model">res.partner</field>
 
-        <!-- En Odoo 19 esto es el más estable en instalaciones estándar -->
-        <field name="inherit_id" ref="base.view_partner_list"/>
+        <!-- 🔥 CLAVE: no dependas de base/contacts -->
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
 
         <field name="arch" type="xml">
 
-            <!-- Inserción segura: después del email -->
+            <!-- INSERTA COLUMNA SIN DEPENDER DE STRUCTURE TREE -->
             <xpath expr="//field[@name='email']" position="after">
                 <field name="activity_followup_count"/>
             </xpath>
