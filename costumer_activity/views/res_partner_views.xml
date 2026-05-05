@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- FORM VIEW -->
+    <!-- FORM -->
     <record id="view_partner_form_activity" model="ir.ui.view">
         <field name="name">res.partner.form.activity</field>
         <field name="model">res.partner</field>
@@ -15,17 +15,17 @@
         </field>
     </record>
 
-    <!-- TREE VIEW (ULTRA ROBUSTA) -->
+    <!-- LIST (ODOO 19 SAFE WAY) -->
     <record id="view_partner_list_activity" model="ir.ui.view">
         <field name="name">res.partner.list.activity</field>
         <field name="model">res.partner</field>
 
-        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="inherit_id" ref="contacts.view_partner_tree"/>
 
         <field name="arch" type="xml">
 
-            <!-- 🔥 NO DEPENDE DE CAMPOS -->
-            <xpath expr="//tree" position="inside">
+            <!-- ODOO 19 SAFE INSERT -->
+            <xpath expr="//field[@name='email']" position="after">
                 <field name="activity_followup_count"/>
             </xpath>
 
