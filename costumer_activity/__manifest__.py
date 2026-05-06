@@ -6,11 +6,11 @@
     "author": "Noel González Febles",
     "license": "LGPL-3",
     "depends": [
-        "contacts",
+        "base",
         "mail"
     ],
     "data": [
-        "views/res_partner_views.xml",
+        "views/res_partner_views.xml"
     ],
     "installable": True,
     "application": False,
