@@ -1,5 +1,4 @@
-from odoo import models, fields
-
+from odoo import models, fields, api
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
@@ -7,12 +6,21 @@ class ResPartner(models.Model):
     activity_followup_count = fields.Integer(
         string="Nº de seguimientos",
         compute="_compute_activity_followup_count",
-        store=False,
+        store=True,
     )
 
+    @api.depends('activity_ids')
     def _compute_activity_followup_count(self):
-        for partner in self:
-            partner.activity_followup_count = self.env['mail.activity'].search_count([
+        activity_data = self.env['mail.activity'].read_group(
+            [
                 ('res_model', '=', 'res.partner'),
-                ('res_id', '=', partner.id),
-            ])
+                ('res_id', 'in', self.ids),
+            ],
+            ['res_id'],
+            ['res_id']
+        )
+
+        mapped_data = {data['res_id']: data['res_id_count'] for data in activity_data}
+
+        for partner in self:
+            partner.activity_followup_count = mapped_data.get(partner.id, 0)
