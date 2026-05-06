@@ -33,4 +33,4 @@ Campos útiles:
 
 ### Decisión final
 
-Para esta préctica se considera "cliente" a los registros del modelo `res.partner` con `customer_rank > 0`, y "seguimiento" a los registros del modelo `mail.activity` asociados al cliente `rs_model = 'res.partner'` y `res_id=<id del cliente>` 
+Para esta práctica se considera "cliente" a los registros del modelo `res.partner` con `customer_rank > 0`, y "seguimiento" a los registros del modelo `mail.activity` asociados al cliente `rs_model = 'res.partner'` y `res_id=<id del cliente>` 
